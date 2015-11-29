@@ -1,0 +1,3 @@
+name: CommandLog
+version: 1.0.0
+main: com.github.tckz916.commandlog.CommandLog
