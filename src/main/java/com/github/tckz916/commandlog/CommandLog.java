@@ -13,14 +13,14 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class CommandLog extends JavaPlugin implements Listener {
 
-    PluginManager pm = this.getServer().getPluginManager();
+    PluginManager pluginManager = this.getServer().getPluginManager();
 
     @Override
     public void onEnable() {
         super.onEnable();
 
 
-        pm.registerEvents(this, this);
+        pluginManager.registerEvents(this, this);
     }
 
     @Override
@@ -38,9 +38,5 @@ public class CommandLog extends JavaPlugin implements Listener {
             }
         }
 
-    }
-
-    private String coloring(String message) {
-        return ChatColor.translateAlternateColorCodes('&', message);
     }
 }
