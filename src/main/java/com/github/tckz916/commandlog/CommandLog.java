@@ -18,8 +18,6 @@ public class CommandLog extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         super.onEnable();
-
-
         pluginManager.registerEvents(this, this);
     }
 
@@ -31,12 +29,10 @@ public class CommandLog extends JavaPlugin implements Listener {
     @EventHandler
     public void onCommand(PlayerCommandPreprocessEvent event) {
         Player player = event.getPlayer();
-
         for (Player players : this.getServer().getOnlinePlayers()) {
             if (players.hasPermission("commandlog.see")) {
                 players.sendMessage(ChatColor.GRAY + "[CL] " + player.getName() + ": " + event.getMessage());
             }
         }
-
     }
 }
