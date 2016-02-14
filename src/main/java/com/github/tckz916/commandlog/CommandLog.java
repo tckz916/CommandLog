@@ -1,5 +1,7 @@
 package com.github.tckz916.commandlog;
 
+import com.github.tckz916.commandlog.listener.PlayerListener;
+import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,14 +13,22 @@ import org.bukkit.plugin.java.JavaPlugin;
 /**
  * Created by tckz916 on 2015/09/27.
  */
-public class CommandLog extends JavaPlugin implements Listener {
+public class CommandLog extends JavaPlugin{
 
-    PluginManager pluginManager = this.getServer().getPluginManager();
+    @Getter
+    private static CommandLog instance;
+
+    private PluginManager pluginManager = this.getServer().getPluginManager();
 
     @Override
     public void onEnable() {
         super.onEnable();
-        pluginManager.registerEvents(this, this);
+
+        instance = this;
+
+        pluginManager.registerEvents(new PlayerListener(), this);
+
+        saveDefaultConfig();
     }
 
     @Override
@@ -26,13 +36,5 @@ public class CommandLog extends JavaPlugin implements Listener {
         super.onDisable();
     }
 
-    @EventHandler
-    public void onCommand(PlayerCommandPreprocessEvent event) {
-        Player player = event.getPlayer();
-        for (Player players : this.getServer().getOnlinePlayers()) {
-            if (players.hasPermission("commandlog.see")) {
-                players.sendMessage(ChatColor.GRAY + "[CL] " + player.getName() + ": " + event.getMessage());
-            }
-        }
-    }
+
 }
