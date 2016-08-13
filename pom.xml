@@ -44,11 +44,13 @@
 
     <repositories>
         <repository>
-            <id>Spigot-repo</id>
-            <name>Spigot Craft Bukkit Maven Repository</name>
-            <url>http://maven.elmakers.com/repository/</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
         </repository>
-
+        <repository>
+            <id>NekonekoNetwork</id>
+            <url>https://repo.nekonekoserver.net/content/repositories/snapshots/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -56,22 +58,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.6</version>
+            <version>1.10.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

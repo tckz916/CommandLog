@@ -34,6 +34,9 @@ public class PlayerListener implements Listener {
         }
 
         for (Player players : plugin.getServer().getOnlinePlayers()) {
+            if (!players.hasPermission("commandlog.see")) {
+                return;
+            }
             players.sendMessage(ChatColor.valueOf(color) + "[CL] " + player.getName() + ": " + event.getMessage());
         }
     }
